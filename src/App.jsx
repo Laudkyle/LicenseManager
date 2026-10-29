@@ -55,7 +55,7 @@ export default function App() {
         {page==='Overview'&&<Overview summary={summary} licenses={licenses} upcoming={dashboard?.upcoming||[]} vendors={dashboard?.vendors||[]} goLicenses={()=>{setPage('Licenses');setStatusFilter('');}} onEdit={license=>setModal({mode:'edit',license})}/>}
         {page==='Licenses'&&<LicenseInventory licenses={filtered} total={licenses.length} search={search} setSearch={setSearch} statusFilter={statusFilter} setStatusFilter={setStatusFilter} onAdd={()=>setModal({mode:'add'})} onExport={exportCsv} onEdit={license=>setModal({mode:'edit',license})} onRemove={removeLicense} menuId={menuId} setMenuId={setMenuId}/>}
         {page==='Settings'&&<Settings user={user} theme={theme} setTheme={setTheme} onSave={saveSettings} emailDeliveryConfigured={settingsData?.emailDeliveryConfigured} onSignOut={signOut}/>}
-        <footer className="footer"><span>© 2026 LicenseDesk</span><span><span className="footer-pulse"/>Your private license records are saved in PostgreSQL</span><span>Know what renews next <span className="footer-heart">♥</span></span></footer>
+        <footer className="footer"><span>© 2026 LicenseDesk</span><span>Manage renewals with confidence</span></footer>
       </div>
     </main>
     {modal&&<LicenseModal mode={modal.mode} license={modal.license} onClose={()=>setModal(null)} onSave={saveLicense}/>}
